@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :bookinkgs
+  has_many :bookinkgs,
 
   validates :first_name, presence: true
   validates :last_name, presence: true

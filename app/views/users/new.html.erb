@@ -1,0 +1,7 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :first_name, placeholder: "Prénom" %>
+  <%= f.input :last_name, placeholder: "Nom" %>
+  <%= f.input :email, placeholder: "Email" %>
+  <%= f.input :image, placeholder: "Url de l'image" %>
+  <%= f.button :submit, value: "Valider" %>
+  <% end %>
