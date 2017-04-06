@@ -8,6 +8,7 @@
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         <%= link_to "Modifier cet utilisateur", edit_user_path(@user) %>
       </span>
+      <%= link_to "supprimer", user_path(@user), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer cet utilisateur?" } %>
     </div>
   </div>
 </div>

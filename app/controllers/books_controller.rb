@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update]
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
     @books = Book.all
@@ -21,10 +21,32 @@ class BooksController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render 'book/show' }
+        format.html { render 'book/new' }
         format.js
       end
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @book.update(book_params)
+      respond_to do |format|
+        format.html { redirect_to book_path(@book) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render 'book/new' }
+        format.js
+      end
+    end
+  end
+
+  def destroy
+    @book.destroy
+    redirect_to books_path
   end
 
   private
@@ -33,7 +55,7 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :resume, :author)
   end
 
-  def set_user
+  def set_book
     @book = Book.find(params[:id])
   end
 end

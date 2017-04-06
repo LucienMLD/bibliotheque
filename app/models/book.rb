@@ -1,5 +1,4 @@
 class Book < ApplicationRecord
-  belongs_to :booking
   include AASM
 
   validates :title, presence: true, uniqueness: true
@@ -7,11 +6,11 @@ class Book < ApplicationRecord
 
 
   aasm do
-    state :avalaible, :initial => true
+    state :available, :initial => true
     state :unvailable, :cleaning
 
     event :rendered do
-      transitions :from => :unvailable, :to => :avalaible
+      transitions :from => :unvailable, :to => :available
     end
 
     event :borrowed do

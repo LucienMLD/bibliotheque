@@ -1,5 +1,6 @@
 <div class="wrapper">
   <div class="container">
+    <%= link_to "Ajouter un livre", new_book_path %>
     <div class="row">
       <div class="row-book">
         <p>Titre</p>
@@ -9,7 +10,7 @@
       <% @books.each do |book| %>
         <%= link_to book_path(book) do %>
           <div class="row-book">
-            <% if book.avalaible? %>
+            <% if book.available? %>
               <i class="fa fa-check" aria-hidden="true"></i>
             <% else %>
               <i class="fa fa-times" aria-hidden="true"></i>
