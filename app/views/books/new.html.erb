@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= simple_form_for @book do |f| %>
+          <form>
+            <div class="form-group">
+              <%= f.input :title, placeholder: "Prénom", class: "form-control" %>
+            </div>
+            <div class="form-group">
+            <%= f.input :author, placeholder: "Nom", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :resume, placeholder: "Résumé", class: "form-control", as: :text %>
+            </div>
+            <%= f.button :submit, class: "btn btn-default" %>
+          </form>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
