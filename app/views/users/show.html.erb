@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <%= image_tag @user.image %>
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <p><%= @user.email %></p>
+      <span>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <%= link_to "Modifier cet utilisateur", edit_user_path(@user) %>
+      </span>
+      <%= link_to "supprimer", user_path(@user), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer cet utilisateur?" } %>
+    </div>
+  </div>
+</div>

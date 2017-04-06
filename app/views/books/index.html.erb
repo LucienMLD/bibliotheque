@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="container">
+    <%= link_to "Ajouter un livre", new_book_path %>
+    <div class="row">
+      <div class="row-book">
+        <p>Titre</p>
+        <p>Auteur</p>
+        <p>disponible</p>
+      </div>
+      <% @books.each do |book| %>
+        <%= link_to book_path(book) do %>
+          <div class="row-book">
+            <% if book.available? %>
+              <i class="fa fa-check" aria-hidden="true"></i>
+            <% else %>
+              <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
+            <h2><%= book.title %></h2>
+            <h3><%= book.author %></h3>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

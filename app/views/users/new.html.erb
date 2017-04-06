@@ -1,0 +1,19 @@
+<%= simple_form_for @user do |f| %>
+  <form>
+    <div class="form-group">
+      <%= f.input :first_name, placeholder: "Prénom", class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.input :last_name, placeholder: "Nom", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.input :email, placeholder: "Email", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.input :image, placeholder: "Url de l'image", class: "form-control" %>
+    </div>
+    <%= f.button :submit, class: "btn btn-default" %>
+  </form>
+<% end %>
+
+
