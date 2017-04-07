@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @bookings = @user.booking
   end
 
   def new

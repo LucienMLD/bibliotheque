@@ -1,11 +1,10 @@
 <div class="wrapper">
   <div class="container">
-    <%= link_to "Ajouter un livre", new_book_path %>
+    <%= link_to "Ajouter un livre", new_book_path, class: "btn btn-success" %>
     <div class="row">
-      <div class="row-book">
-        <p>Titre</p>
-        <p>Auteur</p>
-        <p>disponible</p>
+      <div class="row-book-title">
+        <h2 id="title">Titre</h2>
+        <h2 id="title">Auteur</h2>
       </div>
       <% @books.each do |book| %>
         <%= link_to book_path(book) do %>

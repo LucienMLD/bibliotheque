@@ -10,5 +10,12 @@
       </span>
       <%= link_to "supprimer", user_path(@user), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer cet utilisateur?" } %>
     </div>
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-sm-12">
+          <%= link_to booking.book.title, book_path(booking.book) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

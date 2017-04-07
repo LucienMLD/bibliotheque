@@ -1,0 +1,14 @@
+#home {
+  .col-sm-4 {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      font-size: 50px;
+    }
+  }
+  .border-right {
+    border-right: 1px solid;
+  }
+}

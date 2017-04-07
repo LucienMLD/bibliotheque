@@ -1,27 +1,27 @@
-<div class="wrapper">
-  <div class="container">
+<div class="wrapper" id="home">
+  <div class="container text-center">
     <div class="row">
-      <div class="nb-users">
-        <h3>Utilisateurs</h3>
-        <p class="number"><%= @users.size %></p>
+      <div class="nb-books col-sm-4">
+        <h3>Livres</h3>
+        <p class="number border-right"><%= @books.size %></p>
       </div>
-      <div class="nb-users-booking">
-        <h3>Emprunteurs</h3>
-        <p class="number"><%= @borrower.size || "0"%></p>
+      <div class="available-books col-sm-4">
+        <h3>Livres disponibles</h3>
+        <p class="number border-right"><%= @books_available.size %></p>
+      </div>
+      <div class="unvailable-books col-sm-4">
+        <h3>Livres indisponibles</h3>
+        <p class="number"><%= @books.size - @books_available.size %></p>
       </div>
     </div>
     <div class="row">
-      <div class="nb-books">
-        <h3>Livres</h3>
-        <p class="number"><%= @books.size %></p>
+      <div class="nb-users col-sm-4 col-sm-offset-2">
+        <h3>Utilisateurs</h3>
+        <p class="number border-right"><%= @users.size %></p>
       </div>
-      <div class="available-books">
-        <h3>Livres disponibles</h3>
-        <p class="number"><%= @books_available.size %></p>
-      </div>
-      <div class="unvailable-books">
-        <h3>Livres indisponibles</h3>
-        <p class="number"><%= @books.size - @books_available.size %></p>
+      <div class="nb-users-booking col-sm-4 ">
+        <h3>Emprunteurs</h3>
+        <p class="number"><%= @borrower.size || "0"%></p>
       </div>
     </div>
   </div>

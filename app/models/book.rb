@@ -14,7 +14,7 @@ class Book < ApplicationRecord
     end
 
     event :borrowed do
-      transitions :from => :avalaible, :to => :unvailable
+      transitions :from => :available, :to => :unvailable
     end
 
   end
