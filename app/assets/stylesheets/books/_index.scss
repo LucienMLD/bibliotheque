@@ -1,0 +1,40 @@
+.row-book {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 10px;
+  transition-duration: 0.3s;
+  &:hover {
+    cursor: pointer;
+    background-color: #4495A5;
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  .fa {
+    flex: 0 0 10%;
+    text-align: center;
+    font-size: 30px;
+  }
+  .fa-check {
+    color: #028c4c;
+  }
+  .fa-times {
+    color: #d30000;
+  }
+  h2 {
+    flex: 1 0 45%;
+  }
+  h3 {
+    flex: 1 0 45%;
+  }
+}
+
+.row-book-title {
+  display: flex;
+  text-align: center;
+  #title {
+    flex: 0 50%;
+  }
+}

@@ -1,0 +1,29 @@
+body {
+  font-family: 'Lato', sans-serif;
+  color: #3a3a3a;
+  a {
+    color: #3a3a3a;
+    &:hover {
+      color: #3a3a3a;
+      text-decoration: none;
+    }
+  }
+  .button {
+    margin: 30px;
+  }
+  .wrapper-form {
+    margin-top: 90px;
+    h2 {
+      margin-bottom: 30px;
+    }
+  }
+  .links {
+   transition-duration: 0.3;
+    &:hover {
+      color: #4495A5;
+    }
+  }
+  .wrapper {
+    margin-top: 30px;
+  }
+}

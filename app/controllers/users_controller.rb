@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @bookings = @user.booking
   end
 
   def new
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
         format.html { redirect_to user_path(@user) }
         format.js
       end
+      flash[:notice] = "L'utilisateur #{@user.first_name} a bien été créé"
     else
       respond_to do |format|
         format.html { render 'user/show' }
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
         format.html { redirect_to user_path(@user) }
         format.js
       end
+      flash[:notice] = "L'utilisateur #{@user.first_name} a bien été mis à jour"
     else
       respond_to do |format|
         format.html { render 'user/show' }
@@ -47,14 +49,20 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    redirect_to users_path
+    if @user.booking.empty?
+      @user.destroy
+      redirect_to users_path
+      flash[:alert] = "L'utilisateur #{@user.first_name} a bien été supprimé"
+    else
+      flash[:alert] = "L'utilisateur #{@user.first_name} possède des livres non rendus"
+      redirect_to user_path(@user)
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :image)
+    params.require(:user).permit(:email, :first_name, :last_name, :image, :image_cache)
   end
 
   def set_user

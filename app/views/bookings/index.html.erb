@@ -1,0 +1,13 @@
+<div class="wrapper wrapper-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 text-center">
+        <h2>Retourner des livres</h2>
+        <%= simple_form_for @booking, method: :delete  do |f| %>
+            <%= f.select :id, options_for_select(@bookings.map { |m| [m.book.title, m.id]}) %>
+            <%= f.submit "Retourner le livre", class: "btn btn-default" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
