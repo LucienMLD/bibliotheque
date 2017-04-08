@@ -1,24 +1,28 @@
 <div class="wrapper">
   <div class="container">
-    <%= link_to "Ajouter un livre", new_book_path, class: "btn btn-success" %>
-    <div class="row">
-      <div class="row-book-title">
-        <h2 id="title">Titre</h2>
-        <h2 id="title">Auteur</h2>
-      </div>
-      <% @books.each do |book| %>
-        <%= link_to book_path(book) do %>
-          <div class="row-book">
-            <% if book.available? %>
-              <i class="fa fa-check" aria-hidden="true"></i>
-            <% else %>
-              <i class="fa fa-times" aria-hidden="true"></i>
-            <% end %>
-            <h2><%= book.title %></h2>
-            <h3><%= book.author %></h3>
-          </div>
+    <%= link_to "Ajouter un livre", new_book_path, class: "btn btn-success button" %>
+    <% if @books.empty? %>
+      <h3>Il n'y a aucun livre dans la bibliothèque</h3>
+    <% else %>
+      <div class="row">
+        <div class="row-book-title">
+          <h2 id="title">Titre</h2>
+          <h2 id="title">Auteur</h2>
+        </div>
+        <% @books.each do |book| %>
+          <%= link_to book_path(book) do %>
+            <div class="row-book">
+              <% if book.available? %>
+                <i class="fa fa-check" aria-hidden="true"></i>
+              <% else %>
+                <i class="fa fa-times" aria-hidden="true"></i>
+              <% end %>
+              <h2><%= book.title %></h2>
+              <h3><%= book.author %></h3>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

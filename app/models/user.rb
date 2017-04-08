@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :image, PhotoUploader
   has_many :booking
 
   validates :first_name, presence: true

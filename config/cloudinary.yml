@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: lucien
+  api_key: '566828389619144'
+  api_secret: ySwTs-kh1YVdkEHNb-MnPJO0III
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: lucien
+  api_key: '566828389619144'
+  api_secret: ySwTs-kh1YVdkEHNb-MnPJO0III
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: lucien
+  api_key: '566828389619144'
+  api_secret: ySwTs-kh1YVdkEHNb-MnPJO0III
+  enhance_image_tag: true
+  static_image_support: false

@@ -1,17 +1,12 @@
-<div class="wrapper">
+<div class="wrapper wrapper-form">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-6 col-sm-offset-3 text-center">
+        <h2>Emprunter des livres</h2>
         <%= simple_form_for @booking do |f| %>
-          <form>
-            <div class="form-group">
-              <%= f.input :user_id, collection: @users, :label_method => :email, prompt: "Selectionnez un utilisateur"%>
-            </div>
-            <div class="form-group">
-            <%= f.input :book_id, collection: @books, :label_method => :title, prompt: "Selectionnez un livre"%>
-            </div>
-            <%= f.button :submit, class: "btn btn-default" %>
-          </form>
+          <%= f.input :user_id, label: false, collection: @users, :label_method => :email, prompt: "Selectionnez un utilisateur"%>
+          <%= f.input :book_id, label: false, collection: @books, :label_method => :title, prompt: "Selectionnez un livre"%>
+          <%= f.button :submit, class: "btn btn-default" %>
         <% end %>
       </div>
     </div>

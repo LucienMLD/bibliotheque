@@ -1,18 +1,23 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <%= link_to "Ajouter un utilisateur", new_user_path %>
+    <div class="col-sm-10 col-sm-offset-1">
+      <%= link_to "Ajouter un utilisateur", new_user_path, class: "btn btn-success button" %>
     </div>
-    <div class="row">
-      <div class="col-sm-12">
+    <% if @users.empty? %>
+      <h1>Il n'y a pas d'utilisateur</h1>
+    <% else %>
+      <div class="row">
         <% @users.each do |user| %>
           <%= link_to user_path(user) do %>
-            <h2><%= user.first_name %> <%= user.last_name %></h2>
+            <div class="col-sm-10 col-sm-offset-1 row-user">
+              <span><%= cl_image_tag user.image, height: 150, width: 150, crop: :fill %></span>
+              <h2><%= user.first_name %> <%= user.last_name %></h2>
+              <p><%= user.email %></p>
+            </div>
           <% end %>
-          <p><%= user.email %></p>
-          <%= image_tag user.image %>
         <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

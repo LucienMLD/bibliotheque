@@ -19,6 +19,7 @@ class BooksController < ApplicationController
         format.html { redirect_to book_path(@book) }
         format.js
       end
+      flash[:notice] = "#{@book.title} a bien été créé"
     else
       respond_to do |format|
         format.html { render 'book/new' }
@@ -36,6 +37,7 @@ class BooksController < ApplicationController
         format.html { redirect_to book_path(@book) }
         format.js
       end
+      flash[:notice] = "#{@book.title} a bien été mis à jour"
     else
       respond_to do |format|
         format.html { render 'book/new' }
@@ -47,6 +49,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     redirect_to books_path
+    flash[:alert] = "#{@book.title} a bien été supprimé"
   end
 
   private
