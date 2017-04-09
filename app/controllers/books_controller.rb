@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user = Booking.where(book_id: @book.id)[0].user
   end
 
   def new
@@ -22,7 +23,7 @@ class BooksController < ApplicationController
       flash[:notice] = "#{@book.title} a bien été créé"
     else
       respond_to do |format|
-        format.html { render 'book/new' }
+        format.html { render 'books/new' }
         format.js
       end
     end
@@ -47,9 +48,14 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy
-    redirect_to books_path
-    flash[:alert] = "#{@book.title} a bien été supprimé"
+    if @book.available?
+      @book.destroy
+      redirect_to books_path
+      flash[:notice] = "#{@book.title} a bien été supprimé"
+    else
+      flash[:alert] = "#{@book.title} n'est pas disponible"
+      redirect_to book_path(@book)
+    end
   end
 
   private
