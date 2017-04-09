@@ -6,7 +6,9 @@ class BooksController < ApplicationController
   end
 
   def show
-    @user = Booking.where(book_id: @book.id)[0].user
+    if Booking.where(book_id: @book.id).exists?
+      @user = Booking.where(book_id: @book.id)[0].user
+    end
   end
 
   def new
