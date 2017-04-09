@@ -6,7 +6,7 @@
         <%= simple_form_for @book do |f| %>
           <%= f.input :title, label: false, placeholder: "Titre", class: "form-control" %>
           <%= f.input :author, label: false, placeholder: "Auteur", class: "form-control" %>
-          <%= f.input :resume, label: false, placeholder: "Résumé", class: "form-control", as: :text %>
+          <%= f.input :resume, label: false, placeholder: "Résumé", class: "form-control", as: :text, :input_html => {:rows => 10} %>
           <%= f.submit "Valider", class: "btn btn-default" %>
         <% end %>
       </div>

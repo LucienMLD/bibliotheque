@@ -19,15 +19,21 @@
       <div class="col-sm-8 col-sm-offset-2">
         <h2 id="borrowed-books">Livres empruntés par l'utilisateur</h2>
       </div>
-      <% @bookings.each do |booking| %>
+      <% if @bookings.empty? %>
         <div class="col-sm-8 col-sm-offset-2">
-          <%= link_to book_path(booking.book) do %>
-            <div class="row-book">
-              <h2><%= booking.book.title %></h2>
-              <h3><%= booking.book.author %></h3>
-            </div>
-          <% end %>
+          <h3>Cet utilisateur n'a emprunté aucun livre</h3>
         </div>
+      <% else %>
+        <% @bookings.each do |booking| %>
+          <div class="col-sm-8 col-sm-offset-2">
+            <%= link_to book_path(booking.book) do %>
+              <div class="row-book">
+                <h2><%= booking.book.title %></h2>
+                <h3><%= booking.book.author %></h3>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
