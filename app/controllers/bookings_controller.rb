@@ -43,7 +43,7 @@ class BookingsController < ApplicationController
     @book.rendered!
     @booking.delete
     redirect_to bookings_path
-    flash[:notice] = "#{@book.title} est de <nouveau></nouveau> disponible"
+    flash[:notice] = "#{@book.title} est de nouveau disponible"
   end
 
   private
