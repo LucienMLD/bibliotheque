@@ -1,11 +1,21 @@
-<div class="wrapper">
+<div class="wrapper wrapper-book">
   <div class="container">
     <div class="row">
-      <%= link_to "Modifier", edit_book_path(@book) %>
-      <%= link_to "Supprimer", book_path(@book), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer ce livre?" } %>
-      <h1><%= @book.title %></h1>
-      <h3><%= @book.author %></h3>
-      <p><%= @book.resume %></p>
+      <div class="col-sm-8 col-sm-offset-2">
+        <h1><%= @book.title %></h1>
+        <h3><%= @book.author %></h3>
+        <p><%= @book.available? ? "Disponible" : (link_to "Emprunté par #{@user.first_name} #{@user.last_name}", user_path(@user)) %></p>
+        <div class="links">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <%= link_to "Modifier", edit_book_path(@book) %>
+        </div>
+        <div class="links">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <%= link_to "Supprimer", book_path(@book), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer ce livre?" } %>
+        </div>
+        <p><%= @book.resume %></p>
+      </div>
     </div>
   </div>
 </div>
+

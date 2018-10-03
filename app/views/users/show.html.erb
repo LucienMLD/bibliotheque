@@ -1,21 +1,41 @@
-<div class="wrapper">
+<div class="wrapper wrapper-user">
   <div class="container">
     <div class="row">
-      <%= image_tag @user.image %>
-      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-      <p><%= @user.email %></p>
-      <span>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        <%= link_to "Modifier cet utilisateur", edit_user_path(@user) %>
-      </span>
-      <%= link_to "supprimer", user_path(@user), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer cet utilisateur?" } %>
+      <div class="col-sm-8 col-sm-offset-2">
+        <%= cl_image_tag @user.image, crop: :fill %>
+        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+        <p><%= @user.email %></p>
+        <div class="links">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <%= link_to "Modifier cet utilisateur", edit_user_path(@user) %>
+        </div>
+        <div class="links">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <%= link_to "Supprimer", user_path(@user), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer cet utilisateur?" } %>
+        </div>
+      </div>
     </div>
     <div class="row">
-      <% @bookings.each do |booking| %>
-        <div class="col-sm-12">
-          <%= link_to booking.book.title, book_path(booking.book) %>
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2 id="borrowed-books">Livres empruntés par l'utilisateur</h2>
+      </div>
+      <% if @bookings.empty? %>
+        <div class="col-sm-8 col-sm-offset-2">
+          <h3>Cet utilisateur n'a emprunté aucun livre</h3>
         </div>
+      <% else %>
+        <% @bookings.each do |booking| %>
+          <div class="col-sm-8 col-sm-offset-2">
+            <%= link_to book_path(booking.book) do %>
+              <div class="row-book">
+                <h2><%= booking.book.title %></h2>
+                <h3><%= booking.book.author %></h3>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
 </div>
+
